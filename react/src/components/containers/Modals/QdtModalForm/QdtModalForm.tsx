@@ -18,7 +18,8 @@ const initialFormState: QdtConfig = {
 	host: window.location.hostname,
 	prefix: '/analytic',
 	secure: false,
-	appId: ''
+	appId: '',
+	port: null
 };
 
 export const QdtModalForm: FC<IProps> = (props) => {
@@ -28,7 +29,13 @@ export const QdtModalForm: FC<IProps> = (props) => {
 
 	const onFormSubmit: React.FormEventHandler<HTMLFormElement> = async (event) => {
 		event.preventDefault();
-		await insertConfig(formValue);
+		await insertConfig({
+			...formValue,
+			name: formValue.name.trim(),
+			host: formValue.host.trim(),
+			prefix: formValue.prefix.trim(),
+			appId: formValue.appId.trim()
+		});
 		onClose?.();
 		setFormValue({ ...initialFormState });
 	};
@@ -92,6 +99,28 @@ export const QdtModalForm: FC<IProps> = (props) => {
 							/>
 						</div>
 						<div className="form-control">
+							<label htmlFor="port" className="form-label">
+								Hostname
+							</label>
+							<input
+								type="number"
+								name="port"
+								id="port"
+								required
+								placeholder="port"
+								className="input input-bordered w-full"
+								value={formValue.port === null ? '' : formValue.port}
+								onChange={(e) =>
+									onFormFieldChange(
+										'port',
+										e.target.value === ''
+											? null
+											: parseInt(e.target.value)
+									)
+								}
+							/>
+						</div>
+						<div className="form-control">
 							<label htmlFor="prefix" className="form-label">
 								Prefix
 							</label>
@@ -132,7 +161,7 @@ export const QdtModalForm: FC<IProps> = (props) => {
 								type="checkbox"
 								name="secure"
 								id="secure"
-								className="checkbox"
+								className="checkbox checked:bg-green-700"
 								checked={formValue.secure}
 								onChange={(e) =>
 									onFormFieldChange('secure', e.target.checked)
@@ -141,7 +170,10 @@ export const QdtModalForm: FC<IProps> = (props) => {
 						</div>
 					</div>
 					<div className="form-footer">
-						<button type="submit" className="btn btn-block btn-primary">
+						<button
+							type="submit"
+							className="btn btn-block  btn-success bg-green-700 hover:bg-green-700 text-white"
+						>
 							Add
 						</button>
 					</div>

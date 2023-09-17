@@ -38,9 +38,10 @@ export const QdtProvider: FC<IProps> = (props) => {
 					{
 						host: 'sense-demo.qlik.com',
 						name: 'Demo App',
-						appId: '1240000a-f6c9-4112-bd6e-ac264e8ab56d',
+						appId: 'b23be62b-79d1-4761-b576-00ebc19acfb3',
 						prefix: '',
-						secure: false
+						secure: false,
+						port: null
 					},
 					...configs
 				]);
@@ -68,7 +69,7 @@ export const QdtProvider: FC<IProps> = (props) => {
 	useEffect(() => {
 		if (active == null) return;
 		const initQDT = async () => {
-			const qdtConfig = { ...active, port: 443 };
+			const qdtConfig = { ...active };
 			setQlik({
 				capabilityPromise: qdtCapabilityApp(qdtConfig),
 				enginePromise: qdtEnigma(qdtConfig)

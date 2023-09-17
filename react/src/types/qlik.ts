@@ -4,6 +4,7 @@ export interface QdtConfig {
 	secure: boolean;
 	prefix: string;
 	appId: string;
+	port: number | null;
 }
 
 export interface IQdtListHandler {
