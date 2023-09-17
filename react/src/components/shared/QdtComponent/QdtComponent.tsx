@@ -19,7 +19,6 @@ export const QdtComponent: FC<IProps> = (props) => {
 	const { type, options, component, properties } = props;
 
 	useEffect(() => {
-		console.log(qlik);
 		if (!qlik) return;
 
 		const initInstance = async () => {
@@ -28,13 +27,9 @@ export const QdtComponent: FC<IProps> = (props) => {
 
 				if (type === AppType.Capability) {
 					const app = await qlik.capabilityPromise;
-					console.log({ capability: app });
 					QdtViz({ element, app, options });
 					return;
 				}
-
-				const app = await qlik.enginePromise;
-				console.log({ capability: app });
 
 				qdtCompose({
 					element,
@@ -51,7 +46,7 @@ export const QdtComponent: FC<IProps> = (props) => {
 		initInstance();
 	}, [qlik, type, options, properties]);
 
-	return <div ref={elementRef}></div>;
+	return <div data-component="qdt-component" ref={elementRef}></div>;
 };
 
 QdtComponent.defaultProps = {

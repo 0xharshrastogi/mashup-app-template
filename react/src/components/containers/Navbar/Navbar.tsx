@@ -8,9 +8,16 @@ export const Navbar = () => {
 
 	return (
 		<>
-			<nav className="px-4 py-3 bg-white bg-opacity-5 backdrop:blur flex justify-between">
+			<nav className="px-6 py-3 bg-white bg-opacity-5 backdrop:blur flex justify-between dark:bg-transparent">
 				<div className="inline-flex items-center">
-					<a href="/">Daily</a>
+					<span>
+						<img
+							height={16}
+							className="h-8"
+							src="https://upload.wikimedia.org/wikipedia/commons/3/32/Qlik_Logo.svg"
+							alt="logo"
+						/>
+					</span>
 				</div>
 				<div>
 					<ul className="inline-flex items-center gap-3">

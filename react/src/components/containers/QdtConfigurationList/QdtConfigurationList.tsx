@@ -19,7 +19,10 @@ export const QdtConfigurationList = () => {
 
 	return (
 		<div className="dropdown dropdown-end">
-			<label tabIndex={0} className="btn btn-ghost rounded-btn items-center">
+			<label
+				tabIndex={0}
+				className="btn btn-ghost rounded-btn items-center dark:text-white"
+			>
 				<span>{active ? active.name : 'Select Qdt Config'}</span>
 				<span>
 					<i className="fa-solid fa-caret-down"></i>
@@ -31,7 +34,11 @@ export const QdtConfigurationList = () => {
 			>
 				{configs.length === 0 && <li>No App Created</li>}
 				{configs.map((config) => (
-					<li key={config.appId} onClick={() => onSelectHandler(config.name)}>
+					<li
+						key={config.appId}
+						className="dark:hover:text-white"
+						onClick={() => onSelectHandler(config.name)}
+					>
 						<button>{config.name}</button>
 					</li>
 				))}
