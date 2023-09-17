@@ -1,0 +1,13 @@
+{
+	"type": "mashup",
+	"name": "template",
+	"description": "React mashup template",
+	"version": "1.0.0",
+	"author": "Harsh Rastogi",
+	"keywords": "",
+	"license": "",
+	"repository": "",
+	"dependencies": {
+		"qlik-sense": ">=3.0.x"
+	}
+}

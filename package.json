@@ -1,0 +1,15 @@
+{
+  "name": "mashup-app-template",
+  "version": "0.0.0",
+  "description": "Mashup app template",
+  "main": "index.js",
+  "scripts": {
+    "ng": "ng",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@angular/cli": "^16.2.2"
+  }
+}

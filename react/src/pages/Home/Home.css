@@ -1,0 +1,14 @@
+.home-page {
+	padding: 2rem;
+}
+
+.object-id-form {
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+
+	.form-input {
+		padding: 1rem;
+		outline: none;
+	}
+}

@@ -1,0 +1,52 @@
+{
+	"root": true,
+	"env": { "browser": true, "es2020": true },
+	"extends": [
+		"eslint:recommended",
+		"plugin:prettier/recommended",
+		"plugin:@typescript-eslint/recommended",
+		"plugin:react-hooks/recommended"
+	],
+	"plugins": [
+		"react-refresh",
+		"prettier",
+		"@typescript-eslint",
+		"unused-imports",
+		"simple-import-sort"
+	],
+	"ignorePatterns": ["dist"],
+	"parser": "@typescript-eslint/parser",
+	"rules": {
+		"indent": "off",
+		"react-refresh/only-export-components": ["warn", { "allowConstantExport": true }],
+		"prettier/prettier": [
+			"error",
+			{
+				"singleQuote": true,
+				"endOfLine": "auto"
+			}
+		],
+		"prefer-destructuring": "error",
+		"@typescript-eslint/comma-dangle": "off", // Avoid conflict rule between Eslint and Prettier
+		"react-hooks/exhaustive-deps": "off",
+		"@typescript-eslint/consistent-type-imports": "error", // Ensure `import type` is used when it's necessary
+		"simple-import-sort/imports": "error", // Import configuration for `eslint-plugin-simple-import-sort`
+		"simple-import-sort/exports": "error", // Export configuration for `eslint-plugin-simple-import-sort`
+		"@typescript-eslint/no-unused-vars": "off",
+		"unused-imports/no-unused-imports": "error",
+		"unused-imports/no-unused-vars": ["error", { "argsIgnorePattern": "^_" }]
+	},
+	"settings": {
+		"react": {
+			"version": "detect"
+		}
+	},
+	"overrides": [
+		{
+			"files": [".ts", ".tsx"],
+			"rules": {
+				"indent": "off"
+			}
+		}
+	]
+}
