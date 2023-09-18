@@ -17,6 +17,7 @@ export const Home = () => {
 	const isFormDisabled = active == null;
 
 	const onObjectIdSubmit: React.FormEventHandler<HTMLFormElement> = (event) => {
+		event.preventDefault();
 		const form = event.target as HTMLFormElement;
 		const input = form[0] as HTMLInputElement;
 		setObjectId(input.value);
